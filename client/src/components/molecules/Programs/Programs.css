@@ -1,0 +1,50 @@
+.programs {
+  margin-top: 4rem;
+}
+
+.programs__wrapper {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 3rem;
+  margin-top: 4rem;
+}
+
+.programs__program a {
+  margin-top: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.programs__program .card__link {
+  height: 18%;
+  bottom: 0;
+  padding-bottom: 2rem;
+}
+
+.programs__program:hover a {
+  background: var(--color-secondary);
+  color: var(--color-white);
+}
+
+.programs__program img {
+  border-top-left-radius: 3rem;
+  border-top-right-radius: 3rem;
+  min-height: 50%;
+}
+
+.programs__program {
+  display: inline-flex;
+  flex-direction: column;
+  max-height: 650px;
+  padding: 0;
+}
+
+.programs__program small {
+  margin: 1rem 1rem 2rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  height: 200px;
+  line-clamp: 4;
+  font-weight: 500;
+}

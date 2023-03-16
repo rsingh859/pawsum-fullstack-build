@@ -1,0 +1,34 @@
+.faq {
+  background: var(--color-white);
+  border: 2px solid transparent;
+  padding: 2rem;
+  border-radius: 1rem;
+  cursor: pointer;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.faq:hover {
+  background: var(--hover-background-color);
+  border-color: var(--color-white);
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
+    rgba(0, 0, 0, 0.22) 0px 10px 10px;
+  transform: translate3D(0, -1px, 0) scale(1.02);
+  transition: var(--transition);
+}
+
+.faq div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.faq__icon {
+  background: transparent;
+  color: var(--color-gray-100);
+  font-size: 1.5rem;
+}
+
+.faq p {
+  margin-top: 1.5rem;
+  transition: var(--transition);
+}
