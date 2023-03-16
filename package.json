@@ -4,7 +4,11 @@
   "description": "Client and server files for our personal use website",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "server": "npm run watch --prefix server",
+    "client": "npm run start --prefix client",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "npm-install": "npm install --prefix server && npm install --prefix client && npm install",
+    "deploy": "npm run build --prefix client && npm run server --prefix server"
   },
   "repository": {
     "type": "git",
