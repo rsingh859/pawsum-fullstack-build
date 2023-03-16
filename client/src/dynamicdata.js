@@ -1,4 +1,5 @@
 import { SiOpenaigym } from "react-icons/si";
+import { FaOpencart } from "react-icons/fa";
 
 export const links = [
   {
@@ -6,16 +7,21 @@ export const links = [
     path: "/",
   },
   {
-    name: "About",
-    path: "/about",
+    name: "Catalog",
+    path: "/products",
   },
   {
-    name: "Gallery",
-    path: "/gallery",
+    name: "Login",
+    path: "/login",
   },
   {
     name: "Contact",
     path: "/contact",
+  },
+  {
+    name: "Cart",
+    path: "/checkout",
+    icon: <FaOpencart />,
   },
 ];
 

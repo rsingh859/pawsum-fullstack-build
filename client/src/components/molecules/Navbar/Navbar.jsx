@@ -20,7 +20,7 @@ const Navbar = () => {
         <ul
           className={`nav__links ${isNavShowing ? "show__nav" : "hide__nav"}`}
         >
-          {links.map(({ name, path }, index) => {
+          {links.map(({ name, path, icon }, index) => {
             return (
               <li key={index}>
                 <NavLink
@@ -29,6 +29,7 @@ const Navbar = () => {
                   onClick={() => setIsNavShowing((prev) => !prev)}
                 >
                   {name}
+                  {icon}
                 </NavLink>
               </li>
             );

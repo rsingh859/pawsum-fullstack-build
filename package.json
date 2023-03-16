@@ -8,7 +8,8 @@
     "client": "npm run start --prefix client",
     "test": "echo \"Error: no test specified\" && exit 1",
     "npm-install": "npm install --prefix server && npm install --prefix client && npm install",
-    "deploy": "npm run build --prefix client && npm run server --prefix server"
+    "deploy": "npm run build --prefix client && npm run server --prefix server",
+    "watch": "concurrently \"npm run server\" \"npm run client\""
   },
   "repository": {
     "type": "git",
@@ -19,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/rsingh859/pawsum-client-server/issues"
   },
-  "homepage": "https://github.com/rsingh859/pawsum-client-server#readme"
+  "homepage": "https://github.com/rsingh859/pawsum-client-server#readme",
+  "dependencies": {
+    "concurrently": "^7.6.0"
+  }
 }

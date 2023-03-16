@@ -1,7 +1,7 @@
 import Home from "./home/Home";
-import About from "./about/About";
+import Catalog from "./catalog/Catalog";
 import Contact from "./contact/Contact";
 import ErrorPage from "./error/ErrorPage";
-import Gallery from "./gallery/Gallery";
+import Login from "./login/Login";
 
-export { Home, About, Contact, ErrorPage, Gallery };
+export { Home, Catalog, Contact, ErrorPage, Login };

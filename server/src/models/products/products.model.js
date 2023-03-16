@@ -1,7 +1,7 @@
-const products = require("./products.mongo");
+const { Product } = require("./products.mongo");
 
 async function getAllProducts() {
-  return await products.find({});
+  return await Product.find({});
 }
 
 module.exports = { getAllProducts };
