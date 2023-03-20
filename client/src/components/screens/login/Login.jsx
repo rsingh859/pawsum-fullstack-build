@@ -4,7 +4,7 @@ import "./Login.css";
 function Login() {
   const [emailId, setEmailId] = useState("");
   const [password, setPassword] = useState("");
-  const [loginState, setLoginState] = useState(true);
+  const [loginState, setLoginState] = useState(false);
   return (
     <div className="login__container">
       <div className="login">
@@ -28,7 +28,7 @@ function Login() {
                 Welcome Back!
               </span>
               <span className="login__welcome-back__main-container__text-container--secondary">
-                To keep sharing your work with us, please log in.
+                We're thrilled to have you and your furry companion back with us
               </span>
             </div>
             <div
@@ -46,28 +46,8 @@ function Login() {
               : "login__create-container--inactive"
           }`}
         >
-          Create Account
-          <div className="login__create-container__social-container">
-            <img
-              className="login__create-container__social-container--facebook-icon"
-              // src={facebook}
-              alt=""
-            />
-            <img
-              className="login__create-container__social-container--google-icon"
-              // src={google}
-              alt=""
-            />
-            <img
-              className="login__create-container__social-container--linkedin-icon"
-              // src={linkedin}
-              alt=""
-            />
-          </div>
-          <span className="login__create-container--info-text">
-            or use email for your registration
-          </span>
           <div className="login__create-container__form-container">
+            <h5>Create Account</h5>
             <form
               className="login__create-container__form-container__form"
               // onSubmit={(e) => {
@@ -82,6 +62,7 @@ function Login() {
                 // value={signUpForm.name}
                 onChange={(value) => {}}
                 required
+                autoFocus
               />
               <input
                 className="login__create-container__form-container__form--email"
@@ -113,27 +94,8 @@ function Login() {
           }`}
         >
           <div className="login__login-container__main-container">
-            <div className="login__login-container__main-container__social-container">
-              <img
-                className="login__login-container__main-container__social-container--facebook-icon"
-                //src={facebook}
-                alt=""
-              />
-              <img
-                className="login__login-container__main-container__social-container--google-icon"
-                //src={google}
-                alt=""
-              />
-              <img
-                className="login__login-container__main-container__social-container--linkedin-icon"
-                //src={linkedin}
-                alt=""
-              />
-            </div>
-            <span className="login__login-container__main-container--info-text">
-              or use email for your login
-            </span>
             <div className="login__login-container__main-container__form-container">
+              <h5>Login</h5>
               <form
                 className="login__login-container__main-container__form-container__form"
                 onSubmit={(e) => {
@@ -147,6 +109,7 @@ function Login() {
                   placeholder="Email"
                   // value={signInForm.email}
                   onChange={(value) => {}}
+                  autoFocus
                   required
                 />
                 <input
@@ -157,7 +120,7 @@ function Login() {
                   onChange={(value) => {}}
                   required
                 />
-                <button className="login__login-container__main-container__form-container__form--submit">
+                <button className="login__login-container__main-container__form-container__form--submit btn sm">
                   Sign In
                 </button>
               </form>

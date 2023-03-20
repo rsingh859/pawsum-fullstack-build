@@ -1,6 +1,6 @@
-const { getAllProducts } = require("./products.model");
+const { getAllProducts } = require("../models/products/products.model");
 
-const { Product } = require("./products.mongo");
+const { Product } = require("../models/products/products.mongo");
 
 async function httpGetAllProducts(req, res) {
   return res.status(200).json(await getAllProducts());
