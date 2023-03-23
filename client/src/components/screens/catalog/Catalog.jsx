@@ -1,7 +1,12 @@
+import Spinner from "../../atoms/Spinner/Spinner";
 import "./Catalog.css";
 
 function Catalog() {
-  return <div>Catalog</div>;
+  return (
+    <div>
+      <Spinner />
+    </div>
+  );
 }
 
 export default Catalog;

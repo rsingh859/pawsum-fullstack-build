@@ -19,11 +19,22 @@ async function httpRegisterUser(req, res) {
       name,
       email,
       password: hashedPassword,
-      isAdmin
+      isAdmin,
     });
 
     await newUser.save();
-    res.json({ message: "Sign up successful" });
+    res.status(200).json({
+      message: "Sign up successful",
+      responseCode: 200,
+      user: await User.findOne(
+        { email },
+        {
+          __v: 0,
+          _id: 0,
+          password: 0,
+        }
+      ),
+    });
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: "Server error" });
@@ -48,8 +59,17 @@ async function httpSignIn(req, res) {
       return res.status(401).json({ error: "Invalid email or password" });
     }
 
-    res.json({
+    res.status(200).json({
       message: "Log in Successful",
+      responseCode: 200,
+      user: await User.findOne(
+        { email },
+        {
+          __v: 0,
+          _id: 0,
+          password: 0,
+        }
+      ),
     });
   } catch (error) {
     console.error(error);

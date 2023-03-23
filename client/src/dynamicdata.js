@@ -11,10 +11,6 @@ export const links = [
     path: "/products",
   },
   {
-    name: "Login",
-    path: "/login",
-  },
-  {
     name: "Contact",
     path: "/contact",
   },

@@ -5,11 +5,17 @@ import Logo from "../../../images/logo.png";
 import { GoThreeBars } from "react-icons/go";
 import { MdOutlineClose } from "react-icons/md";
 import { links } from "../../../dynamicdata";
+import { useSelector, useDispatch } from "react-redux";
 
 import "./Navbar.css";
+import { SIGN_OUT_SUCCESS } from "../../../redux/actionTypes";
 
 const Navbar = () => {
+  const userLoggedIn = useSelector((state) => state.user?.currentUser?.email);
+
   const [isNavShowing, setIsNavShowing] = useState(false);
+
+  const dispatch = useDispatch();
 
   return (
     <nav>
@@ -34,6 +40,26 @@ const Navbar = () => {
               </li>
             );
           })}
+          <li key="login_logout+link">
+            {userLoggedIn ? (
+              <NavLink
+                onClick={() =>
+                  dispatch({
+                    type: SIGN_OUT_SUCCESS,
+                  })
+                }
+              >
+                Logout
+              </NavLink>
+            ) : (
+              <NavLink
+                to="/login"
+                className={({ isActive }) => (isActive ? "active-nav" : "")}
+              >
+                Login
+              </NavLink>
+            )}
+          </li>
         </ul>
         <button
           className="nav__toggle-btn"
