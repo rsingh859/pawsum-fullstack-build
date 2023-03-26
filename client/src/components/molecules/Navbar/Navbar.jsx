@@ -40,26 +40,39 @@ const Navbar = () => {
               </li>
             );
           })}
-          <li key="login_logout+link">
-            {userLoggedIn ? (
-              <NavLink
-                onClick={() =>
-                  dispatch({
-                    type: SIGN_OUT_SUCCESS,
-                  })
-                }
-              >
-                Logout
-              </NavLink>
-            ) : (
+          {userLoggedIn ? (
+            <>
+              <li key="orders_link">
+                <NavLink
+                  to="/orders"
+                  className={({ isActive }) => (isActive ? "active-nav" : "")}
+                >
+                  Orders
+                </NavLink>
+              </li>
+              <li key="logout_link">
+                <NavLink
+                  to="/"
+                  onClick={() =>
+                    dispatch({
+                      type: SIGN_OUT_SUCCESS,
+                    })
+                  }
+                >
+                  Logout
+                </NavLink>
+              </li>
+            </>
+          ) : (
+            <li key="login_link">
               <NavLink
                 to="/login"
                 className={({ isActive }) => (isActive ? "active-nav" : "")}
               >
                 Login
               </NavLink>
-            )}
-          </li>
+            </li>
+          )}
         </ul>
         <button
           className="nav__toggle-btn"

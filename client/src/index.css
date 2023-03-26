@@ -22,6 +22,7 @@ html {
   --color-white: white;
   --color-nav-bg: rgb(46, 46, 46);
   --color-nav-text: rgb(255, 170, 0);
+  --color-error: #9d1b1b;
 
   --container-width-lg: 80%;
   --container-width-md: 90%;

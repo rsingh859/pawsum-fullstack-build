@@ -25,15 +25,12 @@ async function httpRegisterUser(req, res) {
     await newUser.save();
     res.status(200).json({
       message: "Sign up successful",
-      responseCode: 200,
-      user: await User.findOne(
-        { email },
-        {
-          __v: 0,
-          _id: 0,
-          password: 0,
-        }
-      ),
+      user: {
+        name,
+        email,
+        isAdmin,
+        orders: [],
+      },
     });
   } catch (error) {
     console.error(error);
@@ -61,15 +58,12 @@ async function httpSignIn(req, res) {
 
     res.status(200).json({
       message: "Log in Successful",
-      responseCode: 200,
-      user: await User.findOne(
-        { email },
-        {
-          __v: 0,
-          _id: 0,
-          password: 0,
-        }
-      ),
+      user: {
+        name: user?.name,
+        email: user?.email,
+        isAdmin: user?.isAdmin,
+        orders: user?.orders,
+      },
     });
   } catch (error) {
     console.error(error);

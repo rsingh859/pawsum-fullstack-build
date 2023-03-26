@@ -8,11 +8,7 @@ export const links = [
   },
   {
     name: "Catalog",
-    path: "/products",
-  },
-  {
-    name: "Contact",
-    path: "/contact",
+    path: "/catalog",
   },
   {
     name: "Cart",

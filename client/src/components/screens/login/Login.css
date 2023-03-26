@@ -351,3 +351,37 @@
 .login__colored-container--right {
   transform: translateX(235%);
 }
+
+.error-notification-container {
+  font-size: 1rem;
+  border-radius: 1rem;
+  transition: var(--transition);
+  border: 2px solid var(--color-error);
+  color: var(--color-error);
+  width: 290px;
+  font-weight: 500;
+}
+
+.error-notification-container:hover {
+  background-color: var(--color-error);
+  border: 2px solid black;
+  color: white;
+}
+
+.error-notification-container .error_content {
+  display: flex;
+  padding: 5px 10px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.error-notification-container .error_content .closebtn {
+  margin-left: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.error-notification-container .error_content .closebtn:hover {
+  font-size: 1.3rem;
+}

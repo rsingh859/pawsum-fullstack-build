@@ -19,6 +19,11 @@ const userSchema = new mongoose.Schema({
     default: "false",
     required: false,
   },
+  orders: {
+    type: Array,
+    default: [],
+    required: false,
+  },
 });
 
 const User = mongoose.model("User", userSchema);

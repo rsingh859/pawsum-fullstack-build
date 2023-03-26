@@ -1,7 +1,18 @@
-import "./ErrorPage.css";
+// import React from "react";
+// import "./ErrorPage.css";
 
-function ErrorPage() {
-  return <div>ErrorPage</div>;
-}
+// // class ErrorPage extends React.Component {
+// //   constructur() {
+// //     super();
 
-export default ErrorPage;
+// //     this.state = {
+// //       hasErrored: false,
+// //     };
+// //   }
+
+// //   static getDerivedStateFromError(error) {}
+
+// //   componentDidCatch(error, info) {}
+// // }
+
+// export default ErrorPage;

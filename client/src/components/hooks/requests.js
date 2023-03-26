@@ -22,7 +22,14 @@ async function httpLoginRequest(payload, inSignUpState) {
       body: JSON.stringify(payload),
     }
   );
-  return await response.json();
+  const responseBody = await response.json();
+  return {
+    ok: response?.ok,
+    statusCode: response?.status,
+    statusText: response?.statusText,
+    url: response?.url,
+    body: responseBody,
+  };
 }
 
 export {

@@ -9,14 +9,15 @@ import {
 import Spinner from "../../atoms/Spinner/Spinner";
 import { useNavigate } from "react-router-dom";
 import { httpLoginRequest } from "../../hooks/requests";
+import { GrFormClose } from "react-icons/gr";
 import "./Login.css";
+import { invalidCredsResponseCodes } from "../../../constants/constants";
 
 const Login = () => {
   const [signInForm, setSignInForm] = useState({
     email: "",
     password: "",
   });
-
   const [signUpForm, setSignUpForm] = useState({
     name: "",
     email: "",
@@ -24,8 +25,8 @@ const Login = () => {
   });
 
   const [inSignUpState, setInSignUpState] = useState(false);
-
   const [showLoader, setShowLoader] = useState(false);
+  const [showError, setShowError] = useState(false);
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -54,17 +55,28 @@ const Login = () => {
       } else {
         response = await httpLoginRequest(signInForm, inSignUpState);
       }
-      if (response?.responseCode === 200 && response?.user) {
+
+      console.log({ response });
+
+      if (invalidCredsResponseCodes.includes(response?.statusCode)) {
+        setShowError(true);
+      }
+
+      //SUCCESS SCENARIO
+      if (response?.statusCode === 200 && response?.body?.user) {
+        setShowError(false);
         dispatch({
           type: inSignUpState ? SIGN_UP_SUCCESS : SIGN_IN_SUCCESS,
-          payload: response?.user,
+          payload: response?.body?.user,
         });
         navigate("/");
       }
-      if (response?.error) {
+
+      //ERROR SCENARIO
+      if (response?.body?.error) {
         dispatch({
           type: inSignUpState ? SIGN_UP_FAILURE : SIGN_IN_FAILURE,
-          payload: response?.error,
+          payload: response?.body?.error,
         });
       }
     } catch (error) {
@@ -76,6 +88,18 @@ const Login = () => {
     }
     setShowLoader(false);
   };
+
+  const erroNotification = (
+    <div className="error-notification-container">
+      <div className="error_content">
+        <p>Invalid credentials</p>
+        <GrFormClose
+          className="closebtn"
+          onClick={() => setShowError((prev) => !prev)}
+        />
+      </div>
+    </div>
+  );
 
   return (
     <>
@@ -194,6 +218,7 @@ const Login = () => {
                     onChange={handleFormChange}
                     required
                   />
+                  {showError && erroNotification}
                   <button className="login__login-container__main-container__form-container__form--submit btn sm">
                     Sign In
                   </button>
